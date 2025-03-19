@@ -1,8 +1,3 @@
-/**
- * GJS example showing how to build javascript applications using Libadwaita Application.
- * @see https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/examples/hello-world/hello.c
- */
-
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
 import Gtk from "gi://Gtk?version=4.0";
@@ -25,9 +20,11 @@ const onActivate = (app: Adw.Application) => {
     quit();
     return false;
   });
-  const children = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0);
-  children.append(Header(quit));
-  window.set_child(children);
+  const vbox = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0);
+  const { toolbar, stack } = Header(quit);
+  vbox.append(toolbar);
+  vbox.append(stack);
+  window.set_child(vbox);
   window.present();
 };
 

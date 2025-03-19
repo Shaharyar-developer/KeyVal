@@ -5,6 +5,6 @@ import Gio from "@girs/gio-2.0";
 
 export const SettingsView = () => {
   const box = new Gtk.Box({});
-
+  box.append(Gtk.Label.new("Settings"));
   return box;
 };

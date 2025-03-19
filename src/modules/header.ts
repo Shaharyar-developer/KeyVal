@@ -2,16 +2,16 @@ import Adw from "@girs/adw-1";
 import Gtk from "@girs/gtk-4.0";
 import GLib from "@girs/glib-2.0";
 import Gio from "@girs/gio-2.0";
-import { KeyValPairsView } from "./keyval-pairs";
+import { AddKeyValuePairButton, KeyValPairsView } from "./keyval-pairs";
 import { SettingsView } from "./settings";
 
 const Stack = () => {
-  const stack = new Adw.ViewStack();
+  const stack = new Adw.ViewStack({ marginTop: 50 });
   stack.add_titled_with_icon(
     KeyValPairsView(),
     "keyval-pairs",
     "Key-Value Pairs",
-    "view-list-symbolic",
+    "view-list-smbolic",
   );
   stack.add_titled_with_icon(
     SettingsView(),
@@ -39,14 +39,6 @@ export const Header = (quit: () => void) => {
     title: "My App",
   });
 
-  const addButton = new Gtk.Button({
-    vexpand: false,
-    css_classes: ["flat"],
-    child: new Adw.ButtonContent({
-      icon_name: "list-add-symbolic",
-      vexpand: false,
-    }),
-  });
   const closeButton = new Gtk.Button({
     vexpand: false,
     css_classes: ["circular"],
@@ -55,10 +47,11 @@ export const Header = (quit: () => void) => {
       vexpand: false,
     }),
   });
-  const stack = Stack();
   closeButton.connect("clicked", () => quit());
+
+  const stack = Stack();
   const bar = new Gtk.CenterBox({
-    startWidget: addButton,
+    startWidget: AddKeyValuePairButton("", stack),
     centerWidget: StackSwitcher(stack),
     endWidget: closeButton,
     margin_end: 10,
@@ -67,5 +60,5 @@ export const Header = (quit: () => void) => {
   });
   toolbar.add_mnemonic_label(title);
   toolbar.add_top_bar(bar);
-  return toolbar;
+  return { toolbar, stack };
 };
