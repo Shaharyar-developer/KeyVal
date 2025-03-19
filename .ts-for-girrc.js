@@ -1,0 +1,31 @@
+export default {
+    "ignore": [
+        "SoupGNOME-2.4",
+        "GeocodeGlib-1.0",
+        "Soup-2.4",
+        "WebKit2WebExtension-4.1",
+        "WebKit2-4.1",
+        "JavaScriptCore-4.1",
+        "GtkSource-4",
+        "GtkSource-3.0",
+        "ZBar-1.0",
+        "XApp-1.0",
+        "Handy-1",
+        "GtkLayerShell-0.1",
+        "Gspell-1",
+        "GnomeDesktop-3.0",
+        "GnomeBluetooth-1.0",
+        "GnomeAutoarGtk-0.1",
+        "Gkbd-3.0",
+        "GcrUi-3",
+        "DbusmenuGtk3-0.4",
+        "ColordGtk-1.0",
+        "Astal-3.0",
+        "Gtk-3.0",
+        "GdkX11-3.0",
+        "Gdk-3.0",
+        "Gcr-3",
+        "Gck-1",
+        "GIRepository-2.0"
+    ]
+}
